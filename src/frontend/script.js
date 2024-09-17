@@ -3,18 +3,20 @@ class APIFetcher {
     constructor(geoApiKey, timeApiKey) {
         this.geoApiKey = geoApiKey;
         this.timeApiKey = timeApiKey;
+        this.prefixURL = window.location.origin;
     }
 
     // Method to fetch coordinates from Google Geocoding API
     async fetchCoordinates(location) {
-        const geoUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${this.geoApiKey}`;
+        const geoUrl = `${this.prefixURL}/api/geocode?address=${encodeURIComponent(location)}`;
         try {
-            let response = await fetch(geoUrl);
+            const response = await fetch(geoUrl);
             if (!response.ok) {
                 throw new Error(`Geocoding API Error: ${response.status}`);
             }
             const data = await response.json();
-            return data.results.length > 0 ? data.results[0].geometry.location : null;
+            //return data.results.length > 0 ? data.results[0].geometry.location : null;
+            return data.results.length > 0 ? data.results[0] : null;
         } catch (error) {
             console.error("Error fetching coordinates:", error);
             return null;
@@ -23,7 +25,7 @@ class APIFetcher {
 
     // Method to fetch time zone data from Google Time Zone API
     async fetchTimeZone(lat, lon) {
-        const timeUrl = `http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lon}&username=nmai2`;
+        const timeUrl = `${this.prefixURL}/api/timezone?lat=${lat}&lng=${lon}`;
         try {
             const response = await fetch(timeUrl)
                 .then(response => {
@@ -33,7 +35,7 @@ class APIFetcher {
                     return response.json();
                 })
                 .catch(error => console.error('Error:', error));
-            return response ? { ...response, status: "OK" } : response;
+            return response
         } catch (error) {
             console.error("Error fetching time zone data:", error);
             return null;
@@ -64,11 +66,15 @@ class TimeZoneCalculator {
 
     // Method to fetch and return local time based on location
     async calculateTime(location) {
-        const timeData = await this.fetcher.fetchTimeZone(location.latitude, location.longitude);
-        if (timeData && timeData.status === "OK") {
+        const timeResult = await this.fetcher.fetchTimeZone(location.latitude, location.longitude);
+        if (timeResult && timeResult.status === "OK") {
+            const timeData = timeResult.results;
             const timeZoneId = timeData.timezoneId ? timeData.timezoneId : this.getTimezoneByOffset(timeData.gmtOffset);
             const formatter = new Intl.DateTimeFormat('en-US', {
                 timeZone: timeZoneId,
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
                 hour: 'numeric',
                 minute: 'numeric',
                 second: 'numeric',
@@ -152,9 +158,9 @@ class UserInterface {
     initGlobe() {
         this.worldContainer = document.getElementById('globe-container');
         this.world = Globe()(this.worldContainer)
-            .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-            .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-            .backgroundImageUrl('https://unpkg.com/three-globe/example/img/night-sky.png')
+            .globeImageUrl('./img/earth-blue-marble.jpg')
+            .bumpImageUrl('./img/earth-topology.png')
+            .backgroundImageUrl('./img/night-sky.png')
             .pointColor(() => 'red');
 
         this.world.pointOfView({ lat: 0, lng: 0, altitude: 2 });
@@ -184,15 +190,15 @@ class UserInterface {
         hideLoading();
 
         if (locationData) {
-            const _location = new Location(locationData.lat, locationData.lng);
-            await this.processLocation(_location);
+            const location = new Location(locationData.lat, locationData.lng);
+            await this.processLocation(location);
         } else {
             displayError(`Location not found for "${query}". Please try another city.`);
         }
     }
 
-    async processLocation(_location) {
-        const timeData = await this.timeCalculator.calculateTime(_location);
+    async processLocation(location) {
+        const timeData = await this.timeCalculator.calculateTime(location);
 
         if (timeData) {
             const timeZoneInfo = timeData.timeZoneName && timeData.timeZoneId ? `Time Zone: ${timeData.timeZoneName} (${timeData.timeZoneId})` : 'Unknow TimeZone';
@@ -200,10 +206,10 @@ class UserInterface {
             document.getElementById('current-time').innerText = `Current Time (Local): ${timeData.localTime}`;
             document.getElementById('timezone-info').innerText = timeZoneInfo;
 
-            this.updateGlobeLocation(_location);
+            this.updateGlobeLocation(location);
 
             // Fetch and display sunrise and sunset times
-            this.fetchSunriseSunset(_location.latitude, _location.longitude, timeData.timeZoneId);
+            this.fetchSunriseSunset(location.latitude, location.longitude, timeData.timeZoneId);
         } else {
             displayError("Failed to fetch local time data.");
         }
@@ -211,7 +217,8 @@ class UserInterface {
 
     // Fetch Sunrise and Sunset Times
     async fetchSunriseSunset(lat, lng, timezoneId) {
-        const url = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`;
+        //const url = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`;
+        const url = `${this.apiFetcher.prefixURL}/api/sunrise-sunset?lat=${lat}&lng=${lng}`;
         try {
             let response = await fetch(url);
             if (!response.ok) {
@@ -337,17 +344,20 @@ document.getElementById('location').addEventListener('keydown', function(event) 
 // Initialize the User Interface and Globe with Google API keys
 const geoApiKey = 'AIzaSyC0G2flMZzV5WGhWdu4iAXQTHZRRpk_DlU';  // Google API key
 const timeApiKey = 'AIzaSyC0G2flMZzV5WGhWdukiAXQTHZRRpk_DlU';  // Same Google API key used for Time Zone API
-const ui = new UserInterface(geoApiKey, timeApiKey);
-
+//const ui = new UserInterface(geoApiKey, timeApiKey);
+let ui;
 // Auto-detect user's location using browser's Geolocation API
 document.addEventListener('DOMContentLoaded', function () {
+    ui = new UserInterface(geoApiKey, timeApiKey);
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
             const location = new Location(position.coords.latitude, position.coords.longitude);
-            ui.searchLocation(`${location.latitude},${location.longitude}`);
+            ui.processLocation(location);
         }, (error) => {
             console.log("Geolocation access denied or unavailable:", error);
         });
     }
 });
-
+if (typeof fetch !== 'function') {
+    alert('No fetch function support');
+}

@@ -1,0 +1,69 @@
+2024-09-16 20:39:44,224 - ERROR - An error occurred HTTP Error 401: 401
+Traceback (most recent call last):
+  File "C:\temp\earth-globe\src/backend\restutil.py", line 128, in getTimeZone
+    with urllib.request.urlopen(f"{timezone_url}?{encoded_params}") as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 401: 401
+2024-09-16 20:40:05,682 - ERROR - An error occurred HTTP Error 401: 401
+Traceback (most recent call last):
+  File "C:\temp\earth-globe\src/backend\restutil.py", line 128, in getTimeZone
+    with urllib.request.urlopen(f"{timezone_url}?{encoded_params}") as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 401: 401
+2024-09-16 20:40:13,609 - ERROR - An error occurred HTTP Error 401: 401
+Traceback (most recent call last):
+  File "C:\temp\earth-globe\src/backend\restutil.py", line 128, in getTimeZone
+    with urllib.request.urlopen(f"{timezone_url}?{encoded_params}") as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "d:\Servers\Python\python-3.12.3.amd64\Lib\urllib\request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 401: 401
