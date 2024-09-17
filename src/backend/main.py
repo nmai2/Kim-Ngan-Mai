@@ -18,7 +18,6 @@ class RequestHandler(BaseHTTPRequestHandler):
     rest_util = RestUtil()
 
     def do_GET(self):
-        print(f"Request start at: ${self.path}")
         if self.path.startswith('/api'):
             # Handle API requests
             if self.path.startswith('/api/geocode'):
@@ -77,9 +76,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         super().end_headers()
-
-    def is_on_pythonanywhere(self):
-        return 'PYTHONANYWHERE_SITE' in os.environ
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 8000)) #Use PORT from environment or default to 8000

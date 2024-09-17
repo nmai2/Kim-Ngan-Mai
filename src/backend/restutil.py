@@ -2,6 +2,7 @@ import json
 from urllib.parse import urlparse, parse_qs
 import urllib.request
 import urllib.parse
+from datetime import datetime
 
 
 LOCATIONIQ_APIKEY="pk.646cbc0456eb6173a89bb3b3f95ed8ad"
@@ -117,7 +118,7 @@ class RestUtil:
             "formatted": 0
         }
         if date: 
-            if not validate_date(date)
+            if not self.validate_date(date):
                 return self._send_response(request_handler, 400, {"message": "date is invalid."})
             params["date"] = date
         try:
@@ -141,7 +142,7 @@ class RestUtil:
             print(f"Other error occurred: {err}")  # For any other errors
             request_handler.log_error(str(err))
 
-    def validate_date(date_string):
+    def validate_date(self, date_string):
         try:
             # Try to parse the string in the format "YYYY-MM-DD"
             datetime.strptime(date_string, "%Y-%m-%d")
