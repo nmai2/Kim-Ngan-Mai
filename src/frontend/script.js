@@ -199,9 +199,13 @@ class UserInterface {
 
     async processLocation(location) {
         const timeData = await this.timeCalculator.calculateTime(location);
+        this.lat = location.latitude;
+        this.lng = location.longitude;
+        document.getElementById('datepicker').value = '';
 
         if (timeData) {
             const timeZoneInfo = timeData.timeZoneName && timeData.timeZoneId ? `Time Zone: ${timeData.timeZoneName} (${timeData.timeZoneId})` : 'Unknow TimeZone';
+            this.timezoneId = timeData.timeZoneId;
             // Display the current local time and time zone information
             document.getElementById('current-time').innerText = `Current Time (Local): ${timeData.localTime}`;
             document.getElementById('timezone-info').innerText = timeZoneInfo;
@@ -216,9 +220,9 @@ class UserInterface {
     }
 
     // Fetch Sunrise and Sunset Times
-    async fetchSunriseSunset(lat, lng, timezoneId) {
-        //const url = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`;
-        const url = `${this.apiFetcher.prefixURL}/api/sunrise-sunset?lat=${lat}&lng=${lng}`;
+    async fetchSunriseSunset(lat, lng, timezoneId, dateStr) {
+        dateStr = dateStr ? dateStr : new Date().toISOString().split('T')[0];
+        const url = `${this.apiFetcher.prefixURL}/api/sunrise-sunset?lat=${lat}&lng=${lng}&date=${dateStr}`;
         try {
             let response = await fetch(url);
             if (!response.ok) {
@@ -239,6 +243,10 @@ class UserInterface {
             console.error("Error fetching sunrise/sunset data:", error);
             displayError("Unable to retrieve sunrise and sunset times.");
         }
+    }
+    // Update Sunrise and Sunset Times in the chosen date
+    async updateSunrise(dateStr) {
+        this.fetchSunriseSunset(this.lat, this.lng, this.timezoneId, dateStr);
     }
 
     // Update the globe with the new location
@@ -357,7 +365,20 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("Geolocation access denied or unavailable:", error);
         });
     }
+    var fpicker = flatpickr("#datepicker", {
+        dateFormat: "Y-m-d",  // Set the format to mm/dd/yyyy
+        allowInput: false,
+        mode: "single",
+        onChange: function(selectedDates, dateStr, instance) {
+            if (selectedDates && selectedDates.length){
+                const formattedDate = selectedDates[0].toISOString().split('T')[0];
+                ui.updateSunrise(formattedDate);
+            }
+
+        }
+    });
+    document.getElementsByClassName('calendar-icon')[0].addEventListener('click', function() {
+        fpicker.open();
+    });
 });
-if (typeof fetch !== 'function') {
-    alert('No fetch function support');
-}
+

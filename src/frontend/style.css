@@ -205,3 +205,38 @@ body {
     top: 20px;
     position: relative;
 }
+.date-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dpicker-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.dpicker-container>input {
+    border: 1px solid #c3c3c3;
+    line-height: 20px;
+    padding: 6px;
+    border-radius: 2px;
+    background: #fff;
+}
+.dpicker-container>input:focus,
+.dpicker-container>input:focus-visible {
+    border-color: #4889e0;
+    outline: none;
+}
+#datepicker {
+    padding-right: 30px; /* Make room for the icon */
+}
+.calendar-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M14 2V1h-3v1H6V1H3v1H0v15h17V2h-3zM12 2h1v2h-1V2zM4 2h1v2H4V2zM16 16H1v-8.921h15V16zM1 6.079v-3.079h2v2h3V3h5v2h3V3h2v3.079H1z" fill="%23000"></path></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 17px;
+    height: 17px;
+}
