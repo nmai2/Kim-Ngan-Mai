@@ -1,2 +1,2 @@
-# Kim-Ngan-Mai
+# Sunrise Sunset Calculator
 
