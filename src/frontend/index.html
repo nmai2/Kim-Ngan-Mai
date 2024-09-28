@@ -14,39 +14,41 @@
 
 <body>
     <div class="container">
-        <h1>Sunrise and Sunset Calculator</h1>
+        <h1><span lang_title>Sunrise and Sunset Calculator</span></h1>
         <div class="input-section">
-            <label for="location">Enter Location (City, Country):</label>
+            <label lang_location_search for="location">Enter Location (City, Country):</label>
             <input type="text" id="location" placeholder="e.g., Tokyo, Japan">
-            <button id="calculate-btn">Calculate</button>
-            <button id="reset-btn">Reset</button>
+            <button lang_calculate id="calculate-btn">Calculate</button>
+            <button lang_reset id="reset-btn">Reset</button>
         </div>
+        <a href="javascript:void(0)" onclick="testlanguage('us')"> Test US </a>&nbsp;&nbsp;
+        <a href="javascript:void(0)" onclick="testlanguage('vi')"> Test VI </a>&nbsp;&nbsp;
 
         <div id="globe-container"></div>
 
         <div class="result-section">
-            <h2>Results</h2>
+            <h2><span lang_results>Results</span></h2>
             <p id="loading-message" style="display:none;">Loading...</p>
-            <p id="current-time">Current Time (Local): --:--</p>
+            <p> <span lang_current_time>Current Time (Local):</span>&nbsp;<span id="current-time"></span></p>
             <div class="date-group">
-                <span>Select date to view&nbsp;</span>
+                <span lang_date_selection>Select date to view</span>&nbsp;
                 <div class="dpicker-container">
                     <input type="text" id="datepicker" placeholder="YYYY-MM-DD">
                     <div class="calendar-icon"></div>
                 </div>
             </div>
-            <p id="sunrise-time">Sunrise: --:--</p>
-            <p id="sunset-time">Sunset: --:--</p>
-            <p id="timezone-info">Time Zone: --:--</p>
+            <p> <span lang_sunrise_time>Sunrise:</span>&nbsp;<span id="sunrise-time"></span></p>
+            <p> <span lang_sunset_time>Sunset:</span>&nbsp;<span id="sunset-time"></span></p>
+            <p> <span lang_timezone>Time Zone:</span>&nbsp;<span id="timezone-info"></span></p>
             <div id="error-message" class="error-message"></div>
         </div>
 
         <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
+            <h2><span lang_asked_questions>Frequently Asked Questions</span></h2>
             <ul>
-                <li><strong>How is local time calculated?</strong> Local time is calculated using Google's Time Zone API based on the geographic coordinates of the input location.</li>
-                <li><strong>What locations can I search for?</strong> You can search for any city and country globally.</li>
-                <li><strong>Why doesn't my location show up?</strong> Make sure to enter both the city and country for best results.</li>
+                <li><strong><span lang_question1>How is local time calculated?</span></strong>&nbsp;<span lang_answer1> Local time is calculated using Google's Time Zone API based on the geographic coordinates of the input location.</span></li>
+                <li><strong><span lang_question2>What locations can I search for?</span></strong>&nbsp;<span lang_answer2> You can search for any city and country globally.</span></li>
+                <li><strong><span lang_question3>Why doesn't my location show up?</span></strong>&nbsp;<span lang_answer3> Make sure to enter both the city and country for best results.</span></li>
             </ul>
         </div>
     </div>
@@ -55,14 +57,14 @@
 
     <div class="tooltip-container">
         <div class="tooltip-icon">i</div>
-        <div class="tooltip-text">Use this calculator to find the local time and time zone based on the entered location or by clicking on the globe.</div>
+        <div lang_tooltip_text class="tooltip-text">Use this calculator to find the local time and time zone based on the entered location or by clicking on the globe.</div>
     </div>
 
 </body>
 <footer class="footer">
     <div class="footer-content">
-        <p>&copy; 2024 Sunrise and Sunset Calculator. All Rights Reserved.</p>
-        <p><a href="mailto:contact@sunsetcalculator.com">Contact Us</a></p>
+        <p lang_privacy_statement>&copy; 2024 Sunrise and Sunset Calculator. All Rights Reserved.</p>
+        <p><a lang_contact_info href="mailto:contact@sunsetcalculator.com">Contact Us</a></p>
     </div>
 </footer>
 

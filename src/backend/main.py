@@ -26,6 +26,8 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self.rest_util.getTimeZone(self)
             elif self.path.startswith('/api/sunrise-sunset'):
                 self.rest_util.getSunriseSunset(self)
+            elif self.path.startswith('/api/language'):
+                self.rest_util.getSupportiveLanguage(self)
             else:
                 self._send_404()
         else:

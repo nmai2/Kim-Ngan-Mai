@@ -1,0 +1,22 @@
+{
+    "lang_title": "Máy Tính Thời Gian Mặt Trời Mọc và Lặn",
+    "lang_location_search": "Nhập Vị Trí (Thành phố, Quốc gia):",
+    "lang_calculate": "Tính Toán",
+    "lang_reset": "Đặt Lại",
+    "lang_results": "Kết Quả",
+    "lang_current_time": "Giờ Hiện Tại (Địa Phương):",
+    "lang_date_selection": "Chọn ngày để xem",
+    "lang_sunrise_time": "Mặt Trời Mọc:",
+    "lang_sunset_time": "Mặt Trời Lặn:",
+    "lang_timezone": "Múi Giờ:",
+    "lang_asked_questions": "Câu Hỏi Thường Gặp",
+    "lang_question1": "Làm thế nào để tính giờ địa phương?", 
+    "lang_answer1": "Giờ địa phương được tính bằng cách sử dụng API Múi Giờ của Google dựa trên tọa độ địa lý của vị trí bạn đã nhập.",
+    "lang_question2": "Tôi có thể tìm kiếm vị trí nào?",
+    "lang_answer2": "Bạn có thể tìm kiếm bất kỳ thành phố và quốc gia nào trên toàn cầu.",
+    "lang_question3": "Tại sao vị trí của tôi không hiển thị?",
+    "lang_answer3": "Hãy chắc chắn nhập cả tên thành phố và quốc gia để có kết quả tốt nhất.",
+    "lang_privacy_statement": "© 2024 Máy Tính Thời Gian Mặt Trời Mọc và Lặn. Bảo Lưu Mọi Quyền.",
+    "lang_contact_info": "Liên Hệ Chúng Tôi",
+    "lang_tooltip_text": "Sử dụng máy tính này để tìm giờ địa phương và múi giờ dựa trên vị trí đã nhập hoặc bằng cách nhấp vào quả địa cầu."
+}

@@ -204,10 +204,10 @@ class UserInterface {
         document.getElementById('datepicker').value = '';
 
         if (timeData) {
-            const timeZoneInfo = timeData.timeZoneName && timeData.timeZoneId ? `Time Zone: ${timeData.timeZoneName} (${timeData.timeZoneId})` : 'Unknow TimeZone';
+            const timeZoneInfo = timeData.timeZoneName && timeData.timeZoneId ? `${timeData.timeZoneName} (${timeData.timeZoneId})` : 'Unknow TimeZone';
             this.timezoneId = timeData.timeZoneId;
             // Display the current local time and time zone information
-            document.getElementById('current-time').innerText = `Current Time (Local): ${timeData.localTime}`;
+            document.getElementById('current-time').innerText = `${timeData.localTime}`;
             document.getElementById('timezone-info').innerText = timeZoneInfo;
 
             this.updateGlobeLocation(location);
@@ -234,8 +234,8 @@ class UserInterface {
                 const sunset = this.formatTime(data.results.sunset, timezoneId);
 
                 // Display Sunrise and Sunset times
-                document.getElementById('sunrise-time').innerText = `Sunrise: ${sunrise}`;
-                document.getElementById('sunset-time').innerText = `Sunset: ${sunset}`;
+                document.getElementById('sunrise-time').innerText = `${sunrise}`;
+                document.getElementById('sunset-time').innerText = `${sunset}`;
             } else {
                 displayError("Failed to fetch sunrise and sunset times.");
             }
@@ -299,6 +299,27 @@ class UserInterface {
                 d.element.style.color = 'red';
                 return d.element;
             });
+    }
+        //Language Translation
+    async createLoadLanguage(lang){
+        const url = `${this.apiFetcher.prefixURL}/api/language?lang=${lang}`;
+        try {
+            let response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Error fetching sunrise and sunset times.");
+            }
+            const data = await response.json();
+            console.log(data);
+            for (const key in data){
+                const element = document.querySelector(`[${key}]`);
+                if (element) {
+                    element.innerText = data[key];
+                }
+            }
+        } catch (error) {
+            console.error("Error fetching sunrise/sunset data:", error);
+            displayError("Unable to retrieve sunrise and sunset times.");
+        }
     }
 }
 
@@ -381,4 +402,6 @@ document.addEventListener('DOMContentLoaded', function () {
         fpicker.open();
     });
 });
-
+function testlanguage(lang){
+    ui.createLoadLanguage(lang);
+}
