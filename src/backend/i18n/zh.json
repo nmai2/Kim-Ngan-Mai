@@ -1,0 +1,22 @@
+{
+    "lang_title": "日出和日落计算器", 
+    "lang_location_search": "输入位置（城市，国家）:",
+    "lang_calculate": "计算",
+    "lang_reset": "重置",
+    "lang_results": "结果",
+    "lang_current_time": "当前时间（当地）:",
+    "lang_date_selection": "选择要查看的日期",
+    "lang_sunrise_time": "日出时间:",
+    "lang_sunset_time": "日落时间:",
+    "lang_timezone": "时区:",
+    "lang_asked_questions": "常见问题解答",
+    "lang_question1": "如何计算当地时间？",
+    "lang_answer1": "当地时间是根据输入位置的地理坐标使用 Google 的时区 API 计算的。",
+    "lang_question2": "我可以搜索哪些位置？",
+    "lang_answer2": "您可以搜索全球任何城市和国家。",
+    "lang_question3": "为什么我的位置没有显示？",
+    "lang_answer3": "请确保输入城市和国家名称以获得最佳结果。",
+    "lang_privacy_statement": "© 2024 日出和日落计算器。版权所有。",
+    "lang_contact_info": "联系我们",
+    "lang_tooltip_text": "使用此计算器，根据输入的位置或通过点击地球图标，查找当地时间和时区。"
+}

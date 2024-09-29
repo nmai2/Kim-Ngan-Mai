@@ -1,0 +1,22 @@
+{
+    "lang_title": "일출 및 일몰 계산기", 
+    "lang_location_search": "위치 입력 (도시, 국가):",
+    "lang_calculate": "계산",
+    "lang_reset": "초기화",
+    "lang_results": "결과",
+    "lang_current_time": "현재 시간 (현지):",
+    "lang_date_selection": "볼 날짜 선택",
+    "lang_sunrise_time": "일출 시간:",
+    "lang_sunset_time": "일몰 시간:",
+    "lang_timezone": "시간대:",
+    "lang_asked_questions": "자주 묻는 질문",
+    "lang_question1": "현지 시간은 어떻게 계산되나요?",
+    "lang_answer1": "현지 시간은 입력된 위치의 지리적 좌표를 기반으로 Google의 시간대 API를 사용하여 계산됩니다.",
+    "lang_question2": "어떤 위치를 검색할 수 있나요?",
+    "lang_answer2": "전 세계의 모든 도시와 국가를 검색할 수 있습니다.",
+    "lang_question3": "내 위치가 표시되지 않는 이유는 무엇인가요?",
+    "lang_answer3": "최상의 결과를 위해 도시와 국가를 모두 입력했는지 확인하세요.",
+    "lang_privacy_statement": "© 2024 일출 및 일몰 계산기. 모든 권리 보유.",
+    "lang_contact_info": "문의하기",
+    "lang_tooltip_text": "이 계산기를 사용하여 입력된 위치 또는 지구본 아이콘을 클릭하여 현지 시간과 시간대를 확인할 수 있습니다."
+}

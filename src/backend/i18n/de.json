@@ -1,0 +1,22 @@
+{
+    "lang_title": "Sonnenaufgangs- und Sonnenuntergangsrechner", 
+    "lang_location_search": "Geben Sie den Ort ein (Stadt, Land):",
+    "lang_calculate": "Berechnen",
+    "lang_reset": "Zurücksetzen",
+    "lang_results": "Ergebnisse",
+    "lang_current_time": "Aktuelle Uhrzeit (Lokal):",
+    "lang_date_selection": "Datum zur Anzeige auswählen",
+    "lang_sunrise_time": "Sonnenaufgang:",
+    "lang_sunset_time": "Sonnenuntergang:",
+    "lang_timezone": "Zeitzone:",
+    "lang_asked_questions": "Häufig gestellte Fragen",
+    "lang_question1": "Wie wird die lokale Uhrzeit berechnet?",
+    "lang_answer1": "Die lokale Uhrzeit wird anhand der geografischen Koordinaten des eingegebenen Ortes über die Google Zeitzonen-API berechnet.",
+    "lang_question2": "Welche Orte kann ich suchen?",
+    "lang_answer2": "Sie können nach jeder Stadt und jedem Land weltweit suchen.",
+    "lang_question3": "Warum wird mein Ort nicht angezeigt?",
+    "lang_answer3": "Stellen Sie sicher, dass Sie sowohl Stadt als auch Land eingeben, um die besten Ergebnisse zu erhalten.",
+    "lang_privacy_statement": "© 2024 Sonnenaufgangs- und Sonnenuntergangsrechner. Alle Rechte vorbehalten.",
+    "lang_contact_info": "Kontaktieren Sie uns",
+    "lang_tooltip_text": "Verwenden Sie diesen Rechner, um die lokale Uhrzeit und die Zeitzone basierend auf dem eingegebenen Ort oder durch Klicken auf die Weltkugel zu finden."
+}

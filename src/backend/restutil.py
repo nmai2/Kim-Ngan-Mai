@@ -143,11 +143,14 @@ class RestUtil:
             print(f"Other error occurred: {err}")  # For any other errors
             request_handler.log_error(str(err))
 
-    def getSupportiveLanguage(self, request_handler):
+    def getLanguageTranslation(self, request_handler):
         query_params = self.parse_query_params(request_handler)
         if not ("lang" in query_params):
             return self._send_response(request_handler, 400, {"message": "Language is missing."})
         lang = query_params.get("lang", [""])[0]
+        if lang == 'language':
+            return self._send_response(request_handler, 400, {"message": "Language is invalid."})
+
         current_folder = os.path.dirname(os.path.abspath(__file__))
         full_path = os.path.join(current_folder, "i18n", lang + ".json")
         if not (os.path.exists(full_path) and os.path.isfile(full_path)):
@@ -157,7 +160,17 @@ class RestUtil:
             data = json.loads(f.read())
             minimized_json = json.dumps(data, separators=(',', ':'))
             return self._send_response(request_handler, 200, minimized_json)
-            
+        
+    def getSupportedLanguage(self, request_handler):
+        current_folder = os.path.dirname(os.path.abspath(__file__))
+        full_path = os.path.join(current_folder, "i18n", "language.json")
+        with open(full_path, 'r', encoding='utf-8') as f:
+            #request_handler.wfile.write(f.read())
+            data = json.loads(f.read())
+            minimized_json = json.dumps(data, separators=(',', ':'))
+        return self._send_response(request_handler, 200, minimized_json)
+    
+
 
     def validate_date(self, date_string):
         try:

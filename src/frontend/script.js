@@ -321,6 +321,47 @@ class UserInterface {
             displayError("Unable to retrieve sunrise and sunset times.");
         }
     }
+    async getSupportedLanguage(){
+        const url = `${this.apiFetcher.prefixURL}/api/supportedlanguage`;
+        try {
+            fetch(url).then(respond => respond.json()).then(data =>{
+                console.log(data);
+                const selectElement = document.getElementById("languages");
+                // Option 1: Remove all options
+                selectElement.innerHTML = "";
+                data.forEach(item => { 
+                    const option = document.createElement('option'); 
+                    // Create a new <option> element 
+                    option.value = item.id; 
+                    // Set the value to the id 
+                    option.textContent = item.name; 
+                    // Set the display text to the name 
+                    selectElement.appendChild(option); 
+                });
+            })
+            .catch(e => console.log("fetch error"))  
+        } catch (error) {
+            console.error("Error fetching sunrise/sunset data:", error);
+            displayError("Unable to retrieve sunrise and sunset times.");
+        }
+    }
+    loadLocale(locale, datePicker) {
+        if (!flatpickr.l10ns[locale]){
+            const script = document.createElement('script');
+            //script.src = `https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/${locale}.js`;
+            script.src = window.location.origin + `/js/l10n/${locale}.js`
+            script.onload = () => {
+              datePicker.set("locale", flatpickr.l10ns[locale]); // Set the locale dynamically
+            };
+            document.head.appendChild(script);
+        } else {
+            datePicker.set("locale", flatpickr.l10ns[locale]); // Set the locale dynamically
+
+        }
+        
+        document.head.appendChild(script);
+      }
+      
 }
 
 // Utility functions
@@ -395,8 +436,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 const formattedDate = selectedDates[0].toISOString().split('T')[0];
                 ui.updateSunrise(formattedDate);
             }
-
         }
+    });
+    ui.getSupportedLanguage();
+    document.getElementById('languages').addEventListener('change',function () {
+        const lang = this.value; 
+        // Get selected option value (id)
+        const selectedText = this.options[this.selectedIndex].text; 
+        // Get selected option text (name)
+        ui.createLoadLanguage(lang);
+        ui.loadLocale(lang, fpicker);
     });
     document.getElementsByClassName('calendar-icon')[0].addEventListener('click', function() {
         fpicker.open();

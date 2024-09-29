@@ -1,0 +1,22 @@
+{
+    "lang_title": "Calculateur de lever et de coucher du soleil", 
+    "lang_location_search": "Entrez l'emplacement (Ville, Pays) :",
+    "lang_calculate": "Calculer",
+    "lang_reset": "Réinitialiser",
+    "lang_results": "Résultats",
+    "lang_current_time": "Heure actuelle (Locale) :",
+    "lang_date_selection": "Sélectionnez la date à afficher",
+    "lang_sunrise_time": "Lever du soleil :",
+    "lang_sunset_time": "Coucher du soleil :",
+    "lang_timezone": "Fuseau horaire :",
+    "lang_asked_questions": "Questions Fréquemment Posées",
+    "lang_question1": "Comment l'heure locale est-elle calculée ?",
+    "lang_answer1": "L'heure locale est calculée à l'aide de l'API de fuseau horaire de Google en fonction des coordonnées géographiques de l'emplacement saisi.",
+    "lang_question2": "Quels emplacements puis-je rechercher ?",
+    "lang_answer2": "Vous pouvez rechercher n'importe quelle ville et pays dans le monde.",
+    "lang_question3": "Pourquoi mon emplacement n'apparaît-il pas ?",
+    "lang_answer3": "Assurez-vous de saisir à la fois la ville et le pays pour de meilleurs résultats.",
+    "lang_privacy_statement": "© 2024 Calculateur de lever et de coucher du soleil. Tous droits réservés.",
+    "lang_contact_info": "Nous contacter",
+    "lang_tooltip_text": "Utilisez ce calculateur pour trouver l'heure locale et le fuseau horaire en fonction de l'emplacement saisi ou en cliquant sur le globe."
+}

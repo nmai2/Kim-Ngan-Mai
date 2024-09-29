@@ -1,0 +1,22 @@
+{
+    "lang_title": "Calculadora de Amanecer y Atardecer", 
+    "lang_location_search": "Ingrese la ubicación (Ciudad, País):",
+    "lang_calculate": "Calcular",
+    "lang_reset": "Restablecer",
+    "lang_results": "Resultados",
+    "lang_current_time": "Hora Actual (Local):",
+    "lang_date_selection": "Seleccione la fecha a ver",
+    "lang_sunrise_time": "Hora del amanecer:",
+    "lang_sunset_time": "Hora del atardecer:",
+    "lang_timezone": "Zona Horaria:",
+    "lang_asked_questions": "Preguntas Frecuentes",
+    "lang_question1": "¿Cómo se calcula la hora local?",
+    "lang_answer1": "La hora local se calcula utilizando la API de zona horaria de Google, basada en las coordenadas geográficas de la ubicación ingresada.",
+    "lang_question2": "¿Qué ubicaciones puedo buscar?",
+    "lang_answer2": "Puede buscar cualquier ciudad y país a nivel mundial.",
+    "lang_question3": "¿Por qué no aparece mi ubicación?",
+    "lang_answer3": "Asegúrese de ingresar tanto la ciudad como el país para obtener los mejores resultados.",
+    "lang_privacy_statement": "© 2024 Calculadora de Amanecer y Atardecer. Todos los derechos reservados.",
+    "lang_contact_info": "Contáctenos",
+    "lang_tooltip_text": "Use esta calculadora para encontrar la hora local y la zona horaria según la ubicación ingresada o haciendo clic en el globo terráqueo."
+}

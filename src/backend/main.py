@@ -27,7 +27,9 @@ class RequestHandler(BaseHTTPRequestHandler):
             elif self.path.startswith('/api/sunrise-sunset'):
                 self.rest_util.getSunriseSunset(self)
             elif self.path.startswith('/api/language'):
-                self.rest_util.getSupportiveLanguage(self)
+                self.rest_util.getLanguageTranslation(self)
+            elif self.path.startswith('/api/supportedlanguage'):
+                self.rest_util.getSupportedLanguage(self)
             else:
                 self._send_404()
         else:
