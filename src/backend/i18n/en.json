@@ -18,5 +18,7 @@
     "lang_answer3": "Make sure to enter both the city and country for best results.",
     "lang_privacy_statement": "© 2024 Sunrise and Sunset Calculator. All Rights Reserved.",
     "lang_contact_info": "Contact Us",
-    "lang_tooltip_text": "Use this calculator to find the local time and time zone based on the entered location or by clicking on the globe."
+    "lang_tooltip_text": "Use this calculator to find the local time and time zone based on the entered location or by clicking on the globe.",
+    "lang_error_location": "Location not found for \"{0}\". Please try another city.",
+    "lang_error_invalidLocation": "Please enter a valid location."
 }

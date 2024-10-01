@@ -18,5 +18,8 @@
     "lang_answer3": "Hãy chắc chắn nhập cả tên thành phố và quốc gia để có kết quả tốt nhất.",
     "lang_privacy_statement": "© 2024 Máy Tính Thời Gian Mặt Trời Mọc và Lặn. Bảo Lưu Mọi Quyền.",
     "lang_contact_info": "Liên Hệ Chúng Tôi",
-    "lang_tooltip_text": "Sử dụng máy tính này để tìm giờ địa phương và múi giờ dựa trên vị trí đã nhập hoặc bằng cách nhấp vào quả địa cầu."
+    "lang_tooltip_text": "Sử dụng máy tính này để tìm giờ địa phương và múi giờ dựa trên vị trí đã nhập hoặc bằng cách nhấp vào quả địa cầu.",
+    "lang_error_location": "Không tìm thấy vị trí cho \"{0}\". Vui lòng thử thành phố khác.",
+    "lang_error_invalidLocation": "Vui lòng nhập một địa điểm hợp lệ."
+
 }

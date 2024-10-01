@@ -149,6 +149,7 @@ class TimeZoneCalculator {
 // UserInterface: Handles the display and interaction of the globe and UI elements
 class UserInterface {
     constructor(geoApiKey, timeApiKey) {
+        this.langData = {};
         this.apiFetcher = new APIFetcher(geoApiKey, timeApiKey);
         this.timeCalculator = new TimeZoneCalculator(this.apiFetcher);
         this.initGlobe();
@@ -177,7 +178,8 @@ class UserInterface {
         if (locationQuery) {
             this.searchLocation(locationQuery);
         } else {
-            displayError("Please enter a valid location.");
+            //displayError("Please enter a valid location.");
+            displayError(this.langData["lang_error_invalidLocation"] || '');
         }
     }
 
@@ -193,7 +195,9 @@ class UserInterface {
             const location = new Location(locationData.lat, locationData.lng);
             await this.processLocation(location);
         } else {
-            displayError(`Location not found for "${query}". Please try another city.`);
+            //displayError(`Location not found for "${query}". Please try another city.`);
+            const val = this.langData["lang_error_location"] || '';
+            displayError(this.format(val, query));
         }
     }
 
@@ -309,6 +313,7 @@ class UserInterface {
                 throw new Error("Error fetching sunrise and sunset times.");
             }
             const data = await response.json();
+            this.langData = data;
             console.log(data);
             for (const key in data){
                 const element = document.querySelector(`[${key}]`);
@@ -360,7 +365,10 @@ class UserInterface {
         }
         
         document.head.appendChild(script);
-      }
+    }
+    format(str, ...args) { 
+        return str.replace(/\{(\d+)\}/g, (match, index) => args[index]); 
+    }
       
 }
 
@@ -450,6 +458,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementsByClassName('calendar-icon')[0].addEventListener('click', function() {
         fpicker.open();
     });
+    ui.createLoadLanguage("en");
 });
 function testlanguage(lang){
     ui.createLoadLanguage(lang);
