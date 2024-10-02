@@ -18,5 +18,7 @@
     "lang_answer3": "Stellen Sie sicher, dass Sie sowohl Stadt als auch Land eingeben, um die besten Ergebnisse zu erhalten.",
     "lang_privacy_statement": "© 2024 Sonnenaufgangs- und Sonnenuntergangsrechner. Alle Rechte vorbehalten.",
     "lang_contact_info": "Kontaktieren Sie uns",
-    "lang_tooltip_text": "Verwenden Sie diesen Rechner, um die lokale Uhrzeit und die Zeitzone basierend auf dem eingegebenen Ort oder durch Klicken auf die Weltkugel zu finden."
+    "lang_tooltip_text": "Verwenden Sie diesen Rechner, um die lokale Uhrzeit und die Zeitzone basierend auf dem eingegebenen Ort oder durch Klicken auf die Weltkugel zu finden.",
+    "lang_error_location": "Standort für \"{0}\" nicht gefunden. Bitte versuchen Sie es mit einer anderen Stadt.",
+    "lang_error_invalidLocation": "Bitte geben Sie einen gültigen Standort ein."
 }

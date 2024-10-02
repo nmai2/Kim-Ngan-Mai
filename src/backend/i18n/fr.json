@@ -18,5 +18,7 @@
     "lang_answer3": "Assurez-vous de saisir à la fois la ville et le pays pour de meilleurs résultats.",
     "lang_privacy_statement": "© 2024 Calculateur de lever et de coucher du soleil. Tous droits réservés.",
     "lang_contact_info": "Nous contacter",
-    "lang_tooltip_text": "Utilisez ce calculateur pour trouver l'heure locale et le fuseau horaire en fonction de l'emplacement saisi ou en cliquant sur le globe."
+    "lang_tooltip_text": "Utilisez ce calculateur pour trouver l'heure locale et le fuseau horaire en fonction de l'emplacement saisi ou en cliquant sur le globe.",
+    "lang_error_location": "Emplacement non trouvé pour \"{0}\". Veuillez essayer avec une autre ville.",
+    "lang_error_invalidLocation": "Veuillez entrer un emplacement valide."
 }

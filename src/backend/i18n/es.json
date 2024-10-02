@@ -18,5 +18,7 @@
     "lang_answer3": "Asegúrese de ingresar tanto la ciudad como el país para obtener los mejores resultados.",
     "lang_privacy_statement": "© 2024 Calculadora de Amanecer y Atardecer. Todos los derechos reservados.",
     "lang_contact_info": "Contáctenos",
-    "lang_tooltip_text": "Use esta calculadora para encontrar la hora local y la zona horaria según la ubicación ingresada o haciendo clic en el globo terráqueo."
+    "lang_tooltip_text": "Use esta calculadora para encontrar la hora local y la zona horaria según la ubicación ingresada o haciendo clic en el globo terráqueo.",
+    "lang_error_location": "No se ha encontrado la ubicación para \"{0}\". Por favor, pruebe con otra ciudad.",
+    "lang_error_invalidLocation": "Por favor, introduzca una ubicación válida."
 }

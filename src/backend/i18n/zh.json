@@ -18,5 +18,8 @@
     "lang_answer3": "请确保输入城市和国家名称以获得最佳结果。",
     "lang_privacy_statement": "© 2024 日出和日落计算器。版权所有。",
     "lang_contact_info": "联系我们",
-    "lang_tooltip_text": "使用此计算器，根据输入的位置或通过点击地球图标，查找当地时间和时区。"
+    "lang_tooltip_text": "使用此计算器，根据输入的位置或通过点击地球图标，查找当地时间和时区。",
+    "lang_error_location": "未找到 \"{0}\" 的位置。请尝试其他城市。",
+    "lang_error_invalidLocation": "请输入有效的位置。"
 }
+    
