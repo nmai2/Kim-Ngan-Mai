@@ -20,5 +20,8 @@
     "lang_contact_info": "Contact Us",
     "lang_tooltip_text": "Use this calculator to find the local time and time zone based on the entered location or by clicking on the globe.",
     "lang_error_location": "Location not found for \"{0}\". Please try another city.",
-    "lang_error_invalidLocation": "Please enter a valid location."
+    "lang_error_invalidLocation": "Please enter a valid location.",
+    "lang_error_fetchTime": "Failed to fetch local time data.",
+    "lang_error_fetchSunTime": "Failed to fetch sunrise and sunset times.",
+    "lang_error_retrieveSunTime": "Unable to retrieve sunrise and sunset times."
 }

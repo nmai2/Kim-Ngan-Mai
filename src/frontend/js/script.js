@@ -1,8 +1,6 @@
 // APIFetcher: Handles interactions with external APIs for time and location data
 class APIFetcher {
-    constructor(geoApiKey, timeApiKey) {
-        this.geoApiKey = geoApiKey;
-        this.timeApiKey = timeApiKey;
+    constructor() {
         this.prefixURL = window.location.origin;
     }
 
@@ -15,7 +13,6 @@ class APIFetcher {
                 throw new Error(`Geocoding API Error: ${response.status}`);
             }
             const data = await response.json();
-            //return data.results.length > 0 ? data.results[0].geometry.location : null;
             return data.results.length > 0 ? data.results[0] : null;
         } catch (error) {
             console.error("Error fetching coordinates:", error);
@@ -148,9 +145,9 @@ class TimeZoneCalculator {
 
 // UserInterface: Handles the display and interaction of the globe and UI elements
 class UserInterface {
-    constructor(geoApiKey, timeApiKey) {
+    constructor() {
         this.langData = {};
-        this.apiFetcher = new APIFetcher(geoApiKey, timeApiKey);
+        this.apiFetcher = new APIFetcher();
         this.timeCalculator = new TimeZoneCalculator(this.apiFetcher);
         this.initGlobe();
     }
@@ -168,6 +165,7 @@ class UserInterface {
 
         // Event listener for clicking on the globe
         this.world.onGlobeClick(({ lat, lng }) => {
+            clearError();
             const location = new Location(lat, lng);
             this.processLocation(new Location(lat, lng));
         });
@@ -178,8 +176,8 @@ class UserInterface {
         if (locationQuery) {
             this.searchLocation(locationQuery);
         } else {
-            //displayError("Please enter a valid location.");
-            displayError(this.langData["lang_error_invalidLocation"] || '');
+            //"Please enter a valid location."
+            displayError(this.langData["lang_error_invalidLocation"] || '', 'lang_error_invalidLocation');
         }
     }
 
@@ -197,7 +195,7 @@ class UserInterface {
         } else {
             //displayError(`Location not found for "${query}". Please try another city.`);
             const val = this.langData["lang_error_location"] || '';
-            displayError(this.format(val, query));
+            displayError(this.format(val, query), 'lang_error_location', query);
         }
     }
 
@@ -219,7 +217,7 @@ class UserInterface {
             // Fetch and display sunrise and sunset times
             this.fetchSunriseSunset(location.latitude, location.longitude, timeData.timeZoneId);
         } else {
-            displayError("Failed to fetch local time data.");
+            displayError(this.langData['lang_error_fetchTime'], 'lang_error_fetchTime');
         }
     }
 
@@ -241,11 +239,11 @@ class UserInterface {
                 document.getElementById('sunrise-time').innerText = `${sunrise}`;
                 document.getElementById('sunset-time').innerText = `${sunset}`;
             } else {
-                displayError("Failed to fetch sunrise and sunset times.");
+                displayError(this.langData['lang_error_fetchSunTime'], 'lang_error_fetchSunTime');
             }
         } catch (error) {
             console.error("Error fetching sunrise/sunset data:", error);
-            displayError("Unable to retrieve sunrise and sunset times.");
+            displayError(this.langData['lang_error_retrieveSunTime'], 'lang_error_retrieveSunTime');
         }
     }
     // Update Sunrise and Sunset Times in the chosen date
@@ -314,16 +312,25 @@ class UserInterface {
             }
             const data = await response.json();
             this.langData = data;
-            console.log(data);
             for (const key in data){
                 const element = document.querySelector(`[${key}]`);
                 if (element) {
                     element.innerText = data[key];
                 }
             }
+            const element = document.getElementById('error-message');
+            const att = element.getAttribute('langid');
+            const qatt = element.getAttribute('query');
+            if (att){
+                if (qatt){
+                    element.innerText = this.format(data[att], qatt);
+                } else {
+                    element.innerText = data[att];
+                }
+            }
         } catch (error) {
             console.error("Error fetching sunrise/sunset data:", error);
-            displayError("Unable to retrieve sunrise and sunset times.");
+            displayError(this.langData['lang_error_retrieveSunTime'], 'lang_error_retrieveSunTime');
         }
     }
     async getSupportedLanguage(){
@@ -347,14 +354,14 @@ class UserInterface {
             .catch(e => console.log("fetch error"))  
         } catch (error) {
             console.error("Error fetching sunrise/sunset data:", error);
-            displayError("Unable to retrieve sunrise and sunset times.");
+            displayError(this.langData['lang_error_retrieveSunTime'], 'lang_error_retrieveSunTime');
         }
     }
     loadLocale(locale, datePicker) {
         if (!flatpickr.l10ns[locale]){
             const script = document.createElement('script');
             //script.src = `https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/${locale}.js`;
-            script.src = window.location.origin + `/js/l10n/${locale}.js`
+            script.src = window.location.origin + `/js/flatpickr/l10n/${locale}.js`
             script.onload = () => {
               datePicker.set("locale", flatpickr.l10ns[locale]); // Set the locale dynamically
             };
@@ -373,19 +380,29 @@ class UserInterface {
 }
 
 // Utility functions
-function displayError(message) {
-    document.getElementById('error-message').innerText = message;
+function displayError(message, langid, query) {
+    const error_element = document.getElementById('error-message');
+    error_element.innerText = message;
+    error_element.setAttribute('langid', langid);
+    if (query){
+        error_element.setAttribute('query', query);
+    } else {
+        error_element.removeAttribute('query');
+    }
 }
 
 function clearError() {
-    document.getElementById('error-message').innerText = '';
+    const error_element = document.getElementById('error-message');
+    error_element.innerText = '';
+    error_element.removeAttribute('langid');
+    error_element.removeAttribute('query');
 }
 
 function clearPreviousResults() {
-    document.getElementById('current-time').innerText = 'Current Time (Local): --:--';
-    document.getElementById('sunrise-time').innerText = 'Sunrise: --:--';
-    document.getElementById('sunset-time').innerText = 'Sunset: --:--';
-    document.getElementById('timezone-info').innerText = 'Time Zone: --:--';
+    document.getElementById('current-time').innerText = '--:--';
+    document.getElementById('sunrise-time').innerText = '--:--';
+    document.getElementById('sunset-time').innerText = '--:--';
+    document.getElementById('timezone-info').innerText = '--:--';
     clearError();
 }
 
@@ -397,36 +414,11 @@ function hideLoading() {
     document.getElementById('loading-message').style.display = 'none';
 }
 
-
-// Handle the button click for resetting the input and results
-document.getElementById('reset-btn').addEventListener('click', function () {
-    document.getElementById('location').value = ''; // Clears the input field
-    clearPreviousResults(); // Clears any displayed results or messages
-    // Optionally reset the globe view to a default position
-    if (ui && ui.world) {
-        ui.world.pointOfView({ lat: 0, lng: 0, altitude: 2 });
-    }
-});
-
-// Handle the button click for searching a location
-document.getElementById('calculate-btn').addEventListener('click', function () {
-    ui.processSerch();
-});
-document.getElementById('location').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter' || event.keyCode === 13) {
-        // Call the method when 'Enter' is pressed
-        ui.processSerch();
-    }
-});
-
 // Initialize the User Interface and Globe with Google API keys
-const geoApiKey = 'AIzaSyC0G2flMZzV5WGhWdu4iAXQTHZRRpk_DlU';  // Google API key
-const timeApiKey = 'AIzaSyC0G2flMZzV5WGhWdukiAXQTHZRRpk_DlU';  // Same Google API key used for Time Zone API
-//const ui = new UserInterface(geoApiKey, timeApiKey);
 let ui;
 // Auto-detect user's location using browser's Geolocation API
 document.addEventListener('DOMContentLoaded', function () {
-    ui = new UserInterface(geoApiKey, timeApiKey);
+    ui = new UserInterface();
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
             const location = new Location(position.coords.latitude, position.coords.longitude);
@@ -459,7 +451,26 @@ document.addEventListener('DOMContentLoaded', function () {
         fpicker.open();
     });
     ui.createLoadLanguage("en");
+    // Handle the button click for resetting the input and results
+    document.getElementById('reset-btn').addEventListener('click', function () {
+        document.getElementById('location').value = ''; // Clears the input field
+        clearPreviousResults(); // Clears any displayed results or messages
+        // Optionally reset the globe view to a default position
+        if (ui && ui.world) {
+            ui.world.pointOfView({ lat: 0, lng: 0, altitude: 2 });
+        }
+    });
+
+    // Handle the button click for searching a location
+    document.getElementById('calculate-btn').addEventListener('click', function () {
+        ui.processSerch();
+    });
+    document.getElementById('location').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            // Call the method when 'Enter' is pressed
+            ui.processSerch();
+        }
+    });
 });
-function testlanguage(lang){
-    ui.createLoadLanguage(lang);
-}
+
+

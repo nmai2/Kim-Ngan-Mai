@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sunrise and Sunset Calculator</title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/flatpickr.min.css">
         <script src="./js/three.min.js"></script>
         <script src="./js/globe.gl.min.js"></script>
         <script src="./js/flatpickr.min.js"></script>
+        <script src="./js/script.js"></script>
     </head>
 
 <body>
@@ -29,13 +30,12 @@
             <button lang_calculate id="calculate-btn">Calculate</button>
             <button lang_reset id="reset-btn">Reset</button>
         </div>
-
+        <div id="error-message" class="error-message"></div>
         <div id="globe-container"></div>
-
         <div class="result-section">
             <h2><span lang_results>Results</span></h2>
             <p id="loading-message" style="display:none;">Loading...</p>
-            <p> <span lang_current_time>Current Time (Local):</span>&nbsp;<span id="current-time"></span></p>
+            <p> <span lang_current_time>Current Time (Local):</span>&nbsp;<span id="current-time">--:--</span></p>
             <div class="date-group">
                 <span lang_date_selection>Select date to view</span>&nbsp;
                 <div class="dpicker-container">
@@ -43,10 +43,9 @@
                     <div class="calendar-icon"></div>
                 </div>
             </div>
-            <p> <span lang_sunrise_time>Sunrise:</span>&nbsp;<span id="sunrise-time"></span></p>
-            <p> <span lang_sunset_time>Sunset:</span>&nbsp;<span id="sunset-time"></span></p>
-            <p> <span lang_timezone>Time Zone:</span>&nbsp;<span id="timezone-info"></span></p>
-            <div id="error-message" class="error-message"></div>
+            <p> <span lang_sunrise_time>Sunrise:</span>&nbsp;<span id="sunrise-time">--:--</span></p>
+            <p> <span lang_sunset_time>Sunset:</span>&nbsp;<span id="sunset-time">--:--</span></p>
+            <p> <span lang_timezone>Time Zone:</span>&nbsp;<span id="timezone-info">--:--</span></p>
         </div>
 
         <div class="faq-section">
@@ -58,8 +57,6 @@
             </ul>
         </div>
     </div>
-
-    <script src="script.js"></script>
 
     <div class="tooltip-container">
         <div class="tooltip-icon">i</div>

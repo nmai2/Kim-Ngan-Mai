@@ -20,5 +20,8 @@
     "lang_contact_info": "お問い合わせ",
     "lang_tooltip_text": "この計算機を使用して、入力された場所または地球儀をクリックすることで、現地時間とタイムゾーンを確認できます。",
     "lang_error_location": "「{0}」の場所が見つかりませんでした。他の都市を試してください。",
-    "lang_error_invalidLocation": "有効な場所を入力してください。"
+    "lang_error_invalidLocation": "有効な場所を入力してください。",
+    "lang_error_fetchTime": "現地時間データの取得に失敗しました。",
+    "lang_error_fetchSunTime": "日の出と日の入り時刻の取得に失敗しました。",
+    "lang_error_retrieveSunTime": "日の出と日の入り時刻を取得できません。"
 }

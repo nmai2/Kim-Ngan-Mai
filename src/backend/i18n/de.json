@@ -20,5 +20,8 @@
     "lang_contact_info": "Kontaktieren Sie uns",
     "lang_tooltip_text": "Verwenden Sie diesen Rechner, um die lokale Uhrzeit und die Zeitzone basierend auf dem eingegebenen Ort oder durch Klicken auf die Weltkugel zu finden.",
     "lang_error_location": "Standort für \"{0}\" nicht gefunden. Bitte versuchen Sie es mit einer anderen Stadt.",
-    "lang_error_invalidLocation": "Bitte geben Sie einen gültigen Standort ein."
+    "lang_error_invalidLocation": "Bitte geben Sie einen gültigen Standort ein.",
+    "lang_error_fetchTime": "Abrufen der lokalen Zeitdaten fehlgeschlagen.",
+    "lang_error_fetchSunTime": "Abrufen der Sonnenauf- und -untergangszeiten fehlgeschlagen.",
+    "lang_error_retrieveSunTime": "Sonnenauf- und -untergangszeiten konnten nicht abgerufen werden."
 }

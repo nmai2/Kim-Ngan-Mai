@@ -20,5 +20,8 @@
     "lang_contact_info": "문의하기",
     "lang_tooltip_text": "이 계산기를 사용하여 입력된 위치 또는 지구본 아이콘을 클릭하여 현지 시간과 시간대를 확인할 수 있습니다.",
     "lang_error_location": "\"{0}\"에 대한 위치를 찾을 수 없습니다. 다른 도시를 시도해 보십시오.",
-    "lang_error_invalidLocation": "유효한 위치를 입력해 주세요."
+    "lang_error_invalidLocation": "유효한 위치를 입력해 주세요.",
+    "lang_error_fetchTime": "현지 시간 데이터를 가져오는 데 실패했습니다.",
+    "lang_error_fetchSunTime": "일출 및 일몰 시간을 가져오는 데 실패했습니다.",
+    "lang_error_retrieveSunTime": "일출 및 일몰 시간을 검색할 수 없습니다."
 }

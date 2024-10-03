@@ -20,6 +20,8 @@
     "lang_contact_info": "Liên Hệ Chúng Tôi",
     "lang_tooltip_text": "Sử dụng máy tính này để tìm giờ địa phương và múi giờ dựa trên vị trí đã nhập hoặc bằng cách nhấp vào quả địa cầu.",
     "lang_error_location": "Không tìm thấy vị trí cho \"{0}\". Vui lòng thử thành phố khác.",
-    "lang_error_invalidLocation": "Vui lòng nhập một địa điểm hợp lệ."
-
+    "lang_error_invalidLocation": "Vui lòng nhập một địa điểm hợp lệ.",
+    "lang_error_fetchTime": "Không thể lấy dữ liệu thời gian địa phương.",
+    "lang_error_fetchSunTime": "Không thể lấy thời gian mặt trời mọc và lặn.",
+    "lang_error_retrieveSunTime": "Không thể truy xuất thời gian mặt trời mọc và lặn."
 }

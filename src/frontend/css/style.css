@@ -252,5 +252,7 @@ body {
     padding: 3px;
 }
 .error-message{
-    color: magenta;
+    color: #ff0000;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }

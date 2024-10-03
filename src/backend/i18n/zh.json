@@ -20,6 +20,9 @@
     "lang_contact_info": "联系我们",
     "lang_tooltip_text": "使用此计算器，根据输入的位置或通过点击地球图标，查找当地时间和时区。",
     "lang_error_location": "未找到 \"{0}\" 的位置。请尝试其他城市。",
-    "lang_error_invalidLocation": "请输入有效的位置。"
+    "lang_error_invalidLocation": "请输入有效的位置。",
+    "lang_error_fetchTime": "无法获取当地时间数据。",
+    "lang_error_fetchSunTime": "无法获取日出和日落时间。",
+    "lang_error_retrieveSunTime": "无法检索日出和日落时间。"
 }
     

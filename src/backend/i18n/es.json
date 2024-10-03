@@ -20,5 +20,8 @@
     "lang_contact_info": "Contáctenos",
     "lang_tooltip_text": "Use esta calculadora para encontrar la hora local y la zona horaria según la ubicación ingresada o haciendo clic en el globo terráqueo.",
     "lang_error_location": "No se ha encontrado la ubicación para \"{0}\". Por favor, pruebe con otra ciudad.",
-    "lang_error_invalidLocation": "Por favor, introduzca una ubicación válida."
+    "lang_error_invalidLocation": "Por favor, introduzca una ubicación válida.",
+    "lang_error_fetchTime": "Error al obtener los datos de la hora local.",
+    "lang_error_fetchSunTime": "Error al obtener los horarios de salida y puesta del sol.",
+    "lang_error_retrieveSunTime": "No se pueden recuperar los horarios de salida y puesta del sol."
 }
