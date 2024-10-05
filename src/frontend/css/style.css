@@ -8,6 +8,7 @@ h1 {
     letter-spacing: 3px; /* Add some spacing between letters */
     margin-bottom: 20px; /* Add some space below the title */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+
 }
 
 
@@ -75,16 +76,15 @@ body {
 }
 
 .faq-section {
-    background: #e9e9e9;
-    padding: 20px; /* Increased padding for a more spacious feel */
+    width: 100%;
+    text-align: center;
+    background-color: #e9e9e9;
+    padding: 20px;
     margin-top: 30px; /* More space between the FAQ and other sections */
-    border-radius: 8px; /* Slightly rounder corners for a smoother look */
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-    text-align: left; /* Align the text to the left for readability */
-    justify-content: left;
-    align-items: left;
+    border-radius: 8px; 
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); 
+    text-align: left; 
 }
-
 /* Ensure buttons and input fields are visibly separated and easy to interact with */
 .input-section button {
     margin: 5px;
@@ -106,29 +106,20 @@ body {
     margin-bottom: 10px; /* Add space below headings for clarity */
 }
 
-.faq-section h2 {
+faq-section h2 {
     margin-bottom: 15px; /* Add more space below the heading */
     text-align: center; /* Center the FAQ title */
 }
 
 .faq-section ul {
     list-style-type: none; /* Remove default bullets */
-    margin-left: 0;
+    padding-left: 0;
+    margin: 0; /* Remove extra margins */
 }
 
 .faq-section li {
     margin-bottom: 10px; /* Add space between list items */
 }
-.faq-section li::before {
-    margin-right: 2px;
-    display:inline-block;
-    width: 16px;
-    height: 16px;
-    content: "";
-    /* Replace default bullets with sun icon*/
-    background: url(.src/frontend/img/faq-icon.png);
-    background-size: 16px, 16px;
-}    
 /* Footer Styling */
 .footer {
     background-color: #333;
@@ -255,10 +246,14 @@ body {
     top:10px;
     right: 10px;
 }
-.languages>select{
+.languages label {
+    font-size: 16px;
+    margin-right: 5px;
+}
+.languages select{
     background-color: #fff;
     color: #007bff;
-    height: 25px;
+    height: 30px;
     padding: 3px;
     font-size: 16px;
     border-radius: 4px;
