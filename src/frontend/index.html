@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/flatpickr.min.css">
+        <link rel="icon" type="image/x=icon" href=".src/frontend/img/favicon.ico">
         <script src="./js/three.min.js"></script>
         <script src="./js/globe.gl.min.js"></script>
         <script src="./js/flatpickr.min.js"></script>
@@ -14,16 +15,21 @@
     </head>
 
 <body>
-    <div class="container">
-        <div class="languages">
-            <span>Languages&nbsp;</span>
-            <select id="languages">
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-              </select>
-        </div>
         <h1><span lang_title>Sunrise and Sunset Calculator</span></h1>
+        <div class="container">
+            <div class="languages">
+                <span>Translate&nbsp;</span>
+                <select id="languages">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                  </select>
+            </div>
+        <div class="page-instructions" >    
+            <hr class="solidline-spacer">
+            <p lang_instructions>Welcome to the Sunrise and Sunset Calculator! Discover the sunrise and sunset times for any location on Earth. To select a location, simply enter the city and country in the textbox below and press 'Calculate.' Alternatively, click directly on the globe for a precise selection. After choosing a location, you can pick a date to see the corresponding sunrise and sunset times.</p>
+            <hr class="solidline-spacer">
+        </div>
         <div class="input-section">
             <label lang_location_search for="location">Enter Location (City, Country):</label>
             <input type="text" id="location" placeholder="e.g., Tokyo, Japan">
@@ -31,6 +37,10 @@
             <button lang_reset id="reset-btn">Reset</button>
         </div>
         <div id="error-message" class="error-message"></div>
+        <p ><span lang_OR>OR</span></p>
+        <div class="globe_instructions">
+            <label lang_globe_instructions>Select and click on a location on the globe:</label>
+        </div>
         <div id="globe-container"></div>
         <div class="result-section">
             <h2><span lang_results>Results</span></h2>
@@ -51,6 +61,8 @@
         <div class="faq-section">
             <h2><span lang_asked_questions>Frequently Asked Questions</span></h2>
             <ul>
+                <li><strong><span lang_question4>What is sunset?</span></strong>&nbsp;<span lang_answer4> The time of day when the Sun disappears, descending below the Earth's horizon.</span></li>
+                <li><strong><span lang_question5>What is sunrise?</span></strong>&nbsp;<span lang_answer5> The time of day when the Sun appears, ascending above the Earth's horizon.</span></li>
                 <li><strong><span lang_question1>How is local time calculated?</span></strong>&nbsp;<span lang_answer1> Local time is calculated using Google's Time Zone API based on the geographic coordinates of the input location.</span></li>
                 <li><strong><span lang_question2>What locations can I search for?</span></strong>&nbsp;<span lang_answer2> You can search for any city and country globally.</span></li>
                 <li><strong><span lang_question3>Why doesn't my location show up?</span></strong>&nbsp;<span lang_answer3> Make sure to enter both the city and country for best results.</span></li>

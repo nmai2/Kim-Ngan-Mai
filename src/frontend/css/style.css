@@ -81,6 +81,8 @@ body {
     border-radius: 8px; /* Slightly rounder corners for a smoother look */
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
     text-align: left; /* Align the text to the left for readability */
+    justify-content: left;
+    align-items: left;
 }
 
 /* Ensure buttons and input fields are visibly separated and easy to interact with */
@@ -111,14 +113,22 @@ body {
 
 .faq-section ul {
     list-style-type: none; /* Remove default bullets */
-    padding-left: 0;
-    margin: 0; /* Remove extra margins */
+    margin-left: 0;
 }
 
 .faq-section li {
     margin-bottom: 10px; /* Add space between list items */
 }
-
+.faq-section li::before {
+    margin-right: 2px;
+    display:inline-block;
+    width: 16px;
+    height: 16px;
+    content: "";
+    /* Replace default bullets with sun icon*/
+    background: url(.src/frontend/img/faq-icon.png);
+    background-size: 16px, 16px;
+}    
 /* Footer Styling */
 .footer {
     background-color: #333;
@@ -246,13 +256,25 @@ body {
     right: 10px;
 }
 .languages>select{
-    background-color: #007bff;
-    color: #fff;
-    height: 35px;
+    background-color: #fff;
+    color: #007bff;
+    height: 25px;
     padding: 3px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 .error-message{
     color: #ff0000;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     margin-top: 10px;
+}
+.solidline-spacer {
+    border-top: 2px solid #007bff;
+}
+
+.globe_instructions {
+    margin-top: 0px; /* Remove extra space above the instruction */
+    margin-bottom: 20px; /* Adjust the space below */
+    text-align: center;
 }
